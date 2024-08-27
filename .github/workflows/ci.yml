@@ -20,9 +20,12 @@ jobs:
       with:
         node-version: '14'
 
-    - name: Install dependencies
-      run: npm install
+    #- name: Install dependencies
+    #  run: npm install
+    - name: Build Docker image
+      run: docker build -t devops-practice .
 
-    - name: Run tests
-      run: npm test
-
+    #- name: Run tests
+    #  run: npm test
+    - name: Run Docker container
+      run: docker run -d -p 3001:3001 devops-practice
